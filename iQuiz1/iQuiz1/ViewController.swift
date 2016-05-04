@@ -13,12 +13,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     
     let data = Data()
+    var json : NSData = NSData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
+        
+        do {
+            if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data.json, options: NSJSONReadingOptions()) as? NSDictionary {
+                print(jsonResult)
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+
+        
     }
 
     override func didReceiveMemoryWarning() {
