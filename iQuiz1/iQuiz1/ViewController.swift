@@ -42,8 +42,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.title.text = quiz[0]
         cell.overview.text = quiz[1]
         
+        cell.icon.image = UIImage(named: quiz[0])
         
         return cell
     }
+    
+    //todo: add in the view controller that reads in the questions
+    //and the multiple choice shit with it
 }
 
